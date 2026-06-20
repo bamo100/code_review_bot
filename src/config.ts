@@ -8,7 +8,7 @@ function requireEnv(key: string): string {
 
 export const config = {
   cerebrasApiKey: requireEnv("CEREBRAS_API_KEY"),
-  reviewModel: process.env.REVIEW_MODEL ?? "gpt-oss-120b",
+  reviewModel: process.env.REVIEW_MODEL ?? "llama-3.3-70b",
 
   githubToken: requireEnv("GITHUB_TOKEN"),
 

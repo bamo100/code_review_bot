@@ -27,15 +27,15 @@ export declare const ToolFinding: z.ZodObject<{
     message: string;
     filename: string;
     line: number | null;
-    severity: "error" | "warning" | "info";
     ruleId: string | null;
+    severity: "error" | "warning" | "info";
     source: "eslint" | "tsc" | "semgrep";
 }, {
     message: string;
     filename: string;
     line: number | null;
-    severity: "error" | "warning" | "info";
     ruleId: string | null;
+    severity: "error" | "warning" | "info";
     source: "eslint" | "tsc" | "semgrep";
 }>;
 export type ToolFinding = z.infer<typeof ToolFinding>;
