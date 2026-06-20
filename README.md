@@ -134,6 +134,10 @@ This updates the `dist/` directory, which must be committed to GitHub along with
 
 ## Using it as a GitHub Action in another repo
 
+### Prerequisites & Compatibility
+* **Project Type:** The target repository must be a Node.js / TypeScript project (with `package.json` and a lockfile like `package-lock.json` or `yarn.lock`).
+* **Tool Configuration:** The repository should have ESLint and TypeScript (`tsc`) configured locally. If these tools are not set up, the bot will fall back to using only raw LLM code-review judgment.
+
 To use this bot in a repository, add a workflow file (e.g. `.github/workflows/review.yml`) with the following steps. 
 
 ### Example Workflow Setup
@@ -177,7 +181,7 @@ jobs:
 
       # Run the pre-compiled bot directly from your repository
       - name: Run Review Bot
-        uses: your-github-username/your-bot-repo-name@main
+        uses: bamo100/code_review_bot@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
@@ -189,7 +193,7 @@ This bot was designed with security and ease-of-use in mind:
 * **Least Privilege Scope:** Unlike traditional CI/CD review bots that require the broad `checks:write` or custom GitHub App permissions, this bot only requires the standard `pull-requests:write` token scope. This limits the bot's capabilities strictly to checking out the public/private diff and commenting on the PR.
 * **Commit-SHA Pinning:** For security-conscious teams, you can prevent supply-chain attacks by pinning the action to a specific, audited Git Commit SHA instead of `@main` or `@v1`:
   ```yaml
-  uses: your-github-username/your-bot-repo-name@a1b2c3d4e5f6g7h8i9j0...
+  uses: bamo100/code_review_bot@a1b2c3d4e5f6g7h8i9j0...
   ```
 * **No Secret Exposure:** Your `CEREBRAS_API_KEY` is kept safe inside GitHub Secrets and is never exposed in the PR threads.
 
