@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Local env files (CRITICAL: prevents leaking API keys/secrets)
+.env
+.env.local
+
+# Local SQLite databases
+*.sqlite
+*.sqlite-journal
+
+# System files
+.DS_Store
+Thumbs.db
+
+# NOTE: Do NOT ignore the "dist/" folder. 
+# GitHub Actions runs pre-compiled actions directly from the repository, 
+# so "dist/index.js" must be committed and pushed.
