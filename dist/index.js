@@ -37014,7 +37014,7 @@ function requireEnv(key) {
 }
 exports.config = {
     cerebrasApiKey: requireEnv("CEREBRAS_API_KEY"),
-    reviewModel: process.env.REVIEW_MODEL ?? "llama-3.3-70b",
+    reviewModel: process.env.REVIEW_MODEL ?? "gpt-oss-120b",
     githubToken: requireEnv("GITHUB_TOKEN"),
     // Minimum risk level that gets posted as a PR comment.
     // "low" = post everything, "high" = only post the most serious findings.
