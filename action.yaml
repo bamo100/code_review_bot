@@ -1,5 +1,9 @@
 name: 'Agentic Code Review Bot'
 description: 'LLM-powered code reviews with static analysis'
+branding:
+  icon: 'terminal'
+  color: 'purple'
 runs:
   using: 'node20'
   main: 'dist/index.js'
+
